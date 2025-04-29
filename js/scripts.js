@@ -6,18 +6,17 @@
 // This file is intentionally blank
 // Use this file to add JavaScript to your project
 document.addEventListener('DOMContentLoaded', function() {
-  // Initialize carousel with default posts
+  // Initialize carousel
   let currentSlide = 0;
   let slides = document.querySelectorAll('.carousel-slide');
   let dotsContainer = document.querySelector('.carousel-dots');
   let prevBtn = document.querySelector('.prev');
   let nextBtn = document.querySelector('.next');
-  let slideInterval;
 
   // Create dots for navigation
   function createDots() {
       dotsContainer.innerHTML = '';
-      slides.forEach((slide, index) => {
+      slides.forEach((_, index) => {
           const dot = document.createElement('div');
           dot.classList.add('dot');
           if (index === currentSlide) dot.classList.add('active');
@@ -55,15 +54,14 @@ document.addEventListener('DOMContentLoaded', function() {
       slides[currentSlide].classList.add('active');
   }
 
-// Keep button event listeners
-prevBtn.addEventListener('click', prevSlide);
-nextBtn.addEventListener('click', nextSlide);
-
+  // Event listeners for buttons
+  prevBtn.addEventListener('click', prevSlide);
+  nextBtn.addEventListener('click', nextSlide);
 
   // Initialize the carousel
   initCarousel();
 
-  // Gallery item click functionality
+  // Gallery item click functionality - FIXED
   const galleryItems = document.querySelectorAll('.gallery-item');
   
   galleryItems.forEach(item => {
@@ -74,42 +72,35 @@ nextBtn.addEventListener('click', nextSlide);
           const location = this.getAttribute('data-location');
           const date = this.getAttribute('data-date');
           
-          // Update carousel slides
+          // Update carousel slides - FIXED
           updateCarousel(images);
           
           // Update post details
           document.querySelector('.post-caption p').textContent = caption;
           document.querySelector('.location').textContent = location;
           document.querySelector('.post-date').textContent = date;
-          
-          // Scroll to the instagram post section
-          document.getElementById('instagram-post').scrollIntoView({ 
-              behavior: 'smooth' 
-          });
       });
   });
 
-  // Function to update carousel with new images
+  // Function to update carousel with new images - FIXED
   function updateCarousel(imageUrls) {
       const carousel = document.querySelector('.carousel');
       
       // Remove existing slides
-      const existingSlides = document.querySelectorAll('.carousel-slide');
-      existingSlides.forEach(slide => slide.remove());
+      carousel.querySelectorAll('.carousel-slide').forEach(slide => slide.remove());
       
       // Create new slides
       imageUrls.forEach((url, index) => {
           const slide = document.createElement('div');
-          slide.classList.add('carousel-slide');
+          slide.className = 'carousel-slide';
           if (index === 0) slide.classList.add('active');
           slide.innerHTML = `<img src="${url}" alt="Gallery Image">`;
-          carousel.insertBefore(slide, document.querySelector('.carousel-btn.next'));
+          carousel.insertBefore(slide, carousel.querySelector('.carousel-btn.next'));
       });
       
-      // Reset carousel state
-      currentSlide = 0;
+      // Reinitialize carousel
       slides = document.querySelectorAll('.carousel-slide');
+      currentSlide = 0;
       createDots();
-      
   }
 });

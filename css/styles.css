@@ -11832,7 +11832,7 @@ body {
   display: flex;
   justify-content: center;
   gap: 6px;
-  z-index: 2;
+  z-index: 10;
 }
 
 .dot {
