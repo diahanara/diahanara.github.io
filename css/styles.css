@@ -11742,19 +11742,23 @@ post {
 /* Instagram Section */
 .instagram-section {
   display: flex;
+  justify-content: center;
+  align-items: flex-start;
   gap: 30px;
   flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 50px;
+  max-width: 1000px;
+  margin: 0 auto 50px;
+  padding: 0 20px;
 }
 
 /* Carousel */
 .carousel-wrapper {
-  position: relative;
-  max-width: 400px;
+  flex: 1 1 50%;
+  min-width: 300px;
+  max-width: 600px;
   overflow: hidden;
+  position: relative;
   border-radius: 10px;
-  flex-shrink: 0;
 }
 
 .carousel {
@@ -11766,6 +11770,7 @@ post {
   width: 100%;
   height: auto;
   object-fit: contain;
+  display: block;
 }
 
 /* Buttons */
@@ -11786,11 +11791,12 @@ post {
 
 /* Caption */
 .caption-box {
-  max-width: 400px;
+  flex: 1 1 45%;
+  min-width: 280px;
   background: white;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px #ccc;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.1);
 }
 
 .insta-header {
