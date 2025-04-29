@@ -203,30 +203,28 @@
                                       
                                         <!-- Bagian Instagram Post -->
                                         <div class="instagram-section">
-                                          <div class="carousel-wrapper">
-                                            <div class="carousel">
-                                              <img src="assets/Cultural.jpg" alt="img1">
-                                              <img src="assets/Climen Bagaskara.jpg" alt="img2">
-                                              <img src="assets/photo3.jpg" alt="img3">
-                                            </div>
-                                            <button class="carousel-btn prev">&#10094;</button>
-                                            <button class="carousel-btn next">&#10095;</button>
-                                          </div>
-                                      
-                                          <div class="caption-box">
-                                            <div class="insta-header">
-                                              <img src="assets/Foto Profil.png" alt="profile" class="profile-pic">
-                                              <div class="user-info">
-                                                <strong class="username">diahanara</strong>
-                                                <span class="location">Universitas Negeri Yogyakarta</span>
+                                            <div class="carousel-wrapper">
+                                              <div class="carousel">
+                                                <img src="assets/Climen Bagaskara.jpg" class="carousel-image active" />
+                                                <img src="assets/photo3.jpg" class="carousel-image" />
+                                                <!-- Tambahkan lebih banyak gambar -->
+                                                <button class="prev">&#10094;</button>
+                                                <button class="next">&#10095;</button>
                                               </div>
                                             </div>
-                                            <p class="caption">
-                                              Jumat, 7 Juni 2024 -- Gendhing Bahana UAD turut meramaikan acara Sua Gendhing di Pendopo Kampus 3 FPIP UNY...
-                                            </p>
-                                            <span class="date">December 18, 2024</span>
+                                          
+                                            <div class="caption-box">
+                                              <div class="insta-header">
+                                                <img src="assets/Foto Profil.png" class="profile-pic" alt="profile" />
+                                                <div>
+                                                  <strong>diahanara</strong><br />
+                                                  <span class="location">Universitas Negeri Yogyakarta</span>
+                                                </div>
+                                              </div>
+                                              <p><strong>diahanara</strong> Jumat, 7 Juni 2024 ...</p>
+                                              <p class="date">December 18, 2024</p>
+                                            </div>
                                           </div>
-                                        </div>
                                       
                                         <!-- Bagian Galleri -->
                                         <h2 class="gallery-title">My Galleri</h2>
@@ -242,6 +240,22 @@
                                         </div>
                                       
                                         <script src="script.js"></script>
+                                        <script>
+                                            const images = document.querySelectorAll('.carousel-image');
+                                            let current = 0;
+                                            
+                                            document.querySelector('.next').addEventListener('click', () => {
+                                              images[current].classList.remove('active');
+                                              current = (current + 1) % images.length;
+                                              images[current].classList.add('active');
+                                            });
+                                            
+                                            document.querySelector('.prev').addEventListener('click', () => {
+                                              images[current].classList.remove('active');
+                                              current = (current - 1 + images.length) % images.length;
+                                              images[current].classList.add('active');
+                                            });
+                                            </script>
                                       </post>
                                       
 
