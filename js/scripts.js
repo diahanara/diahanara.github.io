@@ -6,7 +6,7 @@
 // This file is intentionally blank
 // Use this file to add JavaScript to your project
 document.addEventListener('DOMContentLoaded', function() {
-  // Initialize carousel
+  // Initialize carousel with default posts
   let currentSlide = 0;
   let slides = document.querySelectorAll('.carousel-slide');
   let dotsContainer = document.querySelector('.carousel-dots');
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
   let nextBtn = document.querySelector('.next');
   let slideInterval;
 
-  // Create dots based on number of slides
+  // Create dots for navigation
   function createDots() {
       dotsContainer.innerHTML = '';
       slides.forEach((slide, index) => {
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
       });
   }
 
-  // Go to specific slide
+  // Navigate to specific slide
   function goToSlide(n) {
       slides[currentSlide].classList.remove('active');
       dotsContainer.children[currentSlide].classList.remove('active');
@@ -34,7 +34,9 @@ document.addEventListener('DOMContentLoaded', function() {
       currentSlide = (n + slides.length) % slides.length;
       
       slides[currentSlide].classList.add('active');
-      dotsContainer.children[currentSlide].classList.add('active');
+      if (dotsContainer.children[currentSlide]) {
+          dotsContainer.children[currentSlide].classList.add('active');
+      }
   }
 
   // Next slide
@@ -79,8 +81,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Pause on hover
   const carousel = document.querySelector('.carousel');
-  carousel.addEventListener('mouseenter', stopAutoSlide);
-  carousel.addEventListener('mouseleave', startAutoSlide);
+  if (carousel) {
+      carousel.addEventListener('mouseenter', stopAutoSlide);
+      carousel.addEventListener('mouseleave', startAutoSlide);
+  }
 
   // Initialize the carousel
   initCarousel();
@@ -93,6 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
           // Get data attributes
           const images = JSON.parse(this.getAttribute('data-images'));
           const caption = this.getAttribute('data-caption');
+          const location = this.getAttribute('data-location');
           const date = this.getAttribute('data-date');
           
           // Update carousel slides
@@ -100,6 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
           
           // Update post details
           document.querySelector('.post-caption p').textContent = caption;
+          document.querySelector('.location').textContent = location;
           document.querySelector('.post-date').textContent = date;
           
           // Scroll to the instagram post section
@@ -113,29 +119,26 @@ document.addEventListener('DOMContentLoaded', function() {
   function updateCarousel(imageUrls) {
       const carousel = document.querySelector('.carousel');
       
-      // Remove existing slides (except the first one which we'll reuse)
+      // Remove existing slides
       const existingSlides = document.querySelectorAll('.carousel-slide');
-      for (let i = 1; i < existingSlides.length; i++) {
-          existingSlides[i].remove();
-      }
+      existingSlides.forEach(slide => slide.remove());
       
-      // Update first slide
-      const firstSlide = existingSlides[0];
-      firstSlide.querySelector('img').src = imageUrls[0];
-      
-      // Add new slides for additional images
-      for (let i = 1; i < imageUrls.length; i++) {
+      // Create new slides
+      imageUrls.forEach((url, index) => {
           const slide = document.createElement('div');
           slide.classList.add('carousel-slide');
-          slide.innerHTML = `<img src="${imageUrls[i]}" alt="Gallery Image">`;
+          if (index === 0) slide.classList.add('active');
+          slide.innerHTML = `<img src="${url}" alt="Gallery Image">`;
           carousel.insertBefore(slide, document.querySelector('.carousel-btn.next'));
-      }
+      });
       
       // Reset carousel state
       currentSlide = 0;
       slides = document.querySelectorAll('.carousel-slide');
       createDots();
-      slides.forEach(slide => slide.classList.remove('active'));
-      slides[0].classList.add('active');
+      
+      // Restart auto slide
+      stopAutoSlide();
+      startAutoSlide();
   }
 });
