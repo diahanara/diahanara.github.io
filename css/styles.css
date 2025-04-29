@@ -11747,6 +11747,12 @@ post {
   margin-right: 10px;
 }
 
+.more-icon {
+  margin-left: auto;
+  cursor: pointer;
+  color: #555;
+}
+
 .slider-caption {
   display: flex;
   flex-wrap: wrap;
