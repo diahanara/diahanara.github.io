@@ -192,50 +192,84 @@
                                     Beyond my academic and professional journey, I’m an active member of communities like <a href="https://www.instagram.com/rumahorkestrajogja/">Rumah Orkestra Jogja</a> and <a href="https://www.instagram.com/gendhingbahana/">Gendhing Bahana UAD</a> , where I nurture my love for music and culture. From performing at national gamelan parades to playing intricate orchestra pieces, creativity flows in all I do.
                                     
                                     Let’s connect and craft something amazing together! 🚀</p>
-                                
+                                    
                                     <posting>
                                         <meta charset="UTF-8">
                                         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                                        <title>Instagram Style Post</title>
+                                        <title>Nur Diah Portfolio</title>
                                         <link rel="stylesheet" href="style.css">
-                                        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+                                      
+                                        <!-- SwiperJS CDN -->
+                                        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
                                     </posting>
-
-                                <post>
-                                    <div class="insta-post">
-                                        <div class="insta-header">
-                                          <img src="assets/Foto Profil.png" alt="profile" class="profile-pic">
-                                          <div>
-                                            <strong>diahanara</strong><br>
-                                            <span class="location">Universitas Negeri Yogyakarta</span>
+                                      <post>
+                                      
+                                        <!-- About Section -->
+                                        <section class="about">
+                                          <h1><span>About</span> Me</h1>
+                                          <p class="sub">Hello</p>
+                                          <p class="desc">
+                                            Hi! I’m Nur Diah Rahmawati, a fresh graduate in Information Systems from Universitas Ahmad Dahlan...
+                                            <a href="#">Rumah Orkestra Jogja</a> and <a href="#">Gendhing Bahana UAD</a>.
+                                            Let’s connect and craft something amazing together! 🚀
+                                          </p>
+                                        </section>
+                                      
+                                        <!-- Image & Caption Section -->
+                                        <section class="slider-caption">
+                                          <div class="slider-container">
+                                            <div class="swiper mySwiper">
+                                              <div class="swiper-wrapper">
+                                                <div class="swiper-slide"><img src="assets/photo1.jpg" alt=""></div>
+                                                <div class="swiper-slide"><img src="assets/photo2.jpg" alt=""></div>
+                                                <div class="swiper-slide"><img src="assets/photo3.jpg" alt=""></div>
+                                              </div>
+                                              <div class="swiper-button-next"></div>
+                                              <div class="swiper-button-prev"></div>
+                                              <div class="swiper-pagination"></div>
+                                            </div>
                                           </div>
-                                          <i class="fa-solid fa-ellipsis-h more-icon"></i>
-                                        </div>
                                       
-                                        <div class="insta-image">
-                                          <img src="assets/photo3.jpg" alt="Post Photo">
-                                        </div>
+                                          <div class="caption-box">
+                                            <h3>diahanara</h3>
+                                            <p class="location">Universitas Negeri Yogyakarta</p>
+                                            <p class="caption">
+                                              Jumat, 7 Juni 2024 -- Gendhing Bahana UAD turut meramaikan acara Sua Gendhing...
+                                            </p>
+                                            <p class="date">December 18, 2024</p>
+                                          </div>
+                                        </section>
                                       
-                                        <div class="insta-actions">
-                                          <i class="fa-regular fa-heart"></i>
-                                          <i class="fa-regular fa-comment"></i>
-                                          <i class="fa-regular fa-paper-plane"></i>
-                                        </div>
+                                        <!-- Gallery Section -->
+                                        <section class="gallery">
+                                          <h2>My Galleri</h2>
+                                          <div class="gallery-grid">
+                                            <div class="item" style="background-image: url('assets/solo.jpg');">Solo dance video</div>
+                                            <div class="item" style="background-image: url('assets/sax.jpg');">Sax player</div>
+                                            <div class="item" style="background-image: url('assets/drone.jpg');">Drone video</div>
+                                            <div class="item" style="background-image: url('assets/dentist.jpg');">Dentistry</div>
+                                            <div class="item" style="background-image: url('assets/music.jpg');">Music video</div>
+                                            <div class="item" style="background-image: url('assets/group.jpg');">Group dance video</div>
+                                            <div class="item wide" style="background-image: url('assets/scenery.jpg');">Scenery video</div>
+                                            <div class="item" style="background-image: url('assets/dentistry.jpg');">Dentistry</div>
+                                          </div>
+                                        </section>
                                       
-                                        <div class="insta-caption">
-                                          <strong>diahanara</strong> Jumat, 7 Juni 2024 -- Gendhing Bahana UAD turut meramaikan acara Sua Gendhing di Pendopo Kampus 3 FFIP UNY, yang diselenggarakan oleh Suksmahangga UNY. Acara ini merupakan ajang silaturahmi komunitas karawitan antaruniversitas di Yogyakarta dengan tema "Gladen Bareng, Nguri-uri Tradisi". Senang sekali bisa bersilaturahmi dan berbagi karya dengan Kalimasada UINSUKA dan Suksmahangga UNY. Semoga acara seperti ini terus berlanjut di tahun-tahun mendatang.
-                                        </div>
+                                        <!-- Swiper JS -->
+                                        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+                                        <script>
+                                          var swiper = new Swiper(".mySwiper", {
+                                            navigation: {
+                                              nextEl: ".swiper-button-next",
+                                              prevEl: ".swiper-button-prev",
+                                            },
+                                            pagination: {
+                                              el: ".swiper-pagination",
+                                            },
+                                          });
+                                        </script>
+                                      </post>
                                       
-                                        <div class="insta-comments">
-                                          <strong>anisimnida</strong> ❤️❤️❤️
-                                        </div>
-                                      
-                                        <div class="insta-footer">
-                                          Liked by <strong>greenelsss</strong> and <strong>76 others</strong><br>
-                                          <span class="post-date">December 18, 2024</span>
-                                        </div>
-                                      </div>
-                                </post>
 
                                 <div class="d-flex justify-content-center fs-2 gap-4">
                                     <a class="text-gradient" href="https://www.instagram.com/diahanara/"><i class="bi bi-instagram"></i></a>

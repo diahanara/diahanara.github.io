@@ -11734,67 +11734,127 @@ html {
 }
 post {
   font-family: 'Arial', sans-serif;
-  background-color: #fafafa;
-  display: flex;
-  justify-content: center;
-  padding: 40px;
-}
-
-.insta-post {
-  width: 400px;
-  background-color: white;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-.insta-header {
-  display: flex;
-  align-items: center;
-  padding: 10px;
-}
-
-.profile-pic {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  margin-right: 10px;
-}
-
-.location {
-  font-size: 12px;
-  color: gray;
-}
-
-.more-icon {
-  margin-left: auto;
-  cursor: pointer;
-  color: #555;
-}
-
-.insta-image img {
-  width: 100%;
-  height: auto;
-}
-
-.insta-actions {
-  display: flex;
-  gap: 15px;
-  font-size: 20px;
-  padding: 10px;
+  margin: 0;
+  padding: 0;
+  background: #f9f9f9;
   color: #333;
 }
 
-.insta-caption, .insta-comments {
-  padding: 0 10px;
-  font-size: 14px;
-  line-height: 1.4;
-  margin-bottom: 8px;
+
+.about {
+  padding: 60px 20px 30px;
+  text-align: center;
 }
 
-.insta-footer {
-  padding: 0 10px 10px 10px;
-  font-size: 12px;
-  color: gray;
+.about .sub {
+  font-size: 18px;
+  margin-top: 5px;
 }
+
+.about .desc {
+  max-width: 800px;
+  margin: auto;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.about a {
+  color: #4a00ff;
+  text-decoration: none;
+}
+
+.slider-caption {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 40px 20px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.slider-container {
+  flex: 1;
+  max-width: 500px;
+  margin: 10px;
+}
+
+.swiper {
+  width: 100%;
+  height: 320px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.caption-box {
+  flex: 1;
+  max-width: 400px;
+  margin: 10px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.caption-box h3 {
+  margin: 0;
+}
+
+.caption-box .location {
+  font-size: 13px;
+  color: #777;
+}
+
+.caption-box .caption {
+  margin-top: 15px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.caption-box .date {
+  font-size: 13px;
+  color: #999;
+  margin-top: 10px;
+}
+
+.gallery {
+  padding: 60px 20px;
+  background: #fff;
+}
+
+.gallery h2 {
+  color: #8a00d4;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.gallery-grid .item {
+  background-size: cover;
+  background-position: center;
+  color: white;
+  font-weight: bold;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: flex-end;
+  height: 180px;
+  position: relative;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.gallery-grid .item.wide {
+  grid-column: span 2;
+}
+
