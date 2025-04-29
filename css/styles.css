@@ -11742,7 +11742,7 @@ post {
 
 .insta-header {
   display: flex;
-  align-items: left;
+  align-items: center;
   padding: 10px;
 }
 
