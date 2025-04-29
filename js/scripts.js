@@ -5,26 +5,17 @@
 */
 // This file is intentionally blank
 // Use this file to add JavaScript to your project
-const carousel = document.querySelector('.carousel');
-const images = document.querySelectorAll('.carousel img');
-const prevBtn = document.querySelector('.prev');
-const nextBtn = document.querySelector('.next');
+const images = document.querySelectorAll('.carousel-image');
+let current = 0;
 
-let index = 0;
-
-function updateCarousel() {
-  const width = images[0].clientWidth;
-  carousel.style.transform = `translateX(-${index * width}px)`;
-}
-
-nextBtn.addEventListener('click', () => {
-  index = (index + 1) % images.length;
-  updateCarousel();
+document.querySelector('.next').addEventListener('click', () => {
+  images[current].classList.remove('active');
+  current = (current + 1) % images.length;
+  images[current].classList.add('active');
 });
 
-prevBtn.addEventListener('click', () => {
-  index = (index - 1 + images.length) % images.length;
-  updateCarousel();
+document.querySelector('.prev').addEventListener('click', () => {
+  images[current].classList.remove('active');
+  current = (current - 1 + images.length) % images.length;
+  images[current].classList.add('active');
 });
-
-window.addEventListener('resize', updateCarousel);

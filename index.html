@@ -192,71 +192,52 @@
                                     Beyond my academic and professional journey, I’m an active member of communities like <a href="https://www.instagram.com/rumahorkestrajogja/">Rumah Orkestra Jogja</a> and <a href="https://www.instagram.com/gendhingbahana/">Gendhing Bahana UAD</a> , where I nurture my love for music and culture. From performing at national gamelan parades to playing intricate orchestra pieces, creativity flows in all I do.
                                     
                                     Let’s connect and craft something amazing together! 🚀</p>
-                                    <posting>
-                                        <meta charset="UTF-8" />
-                                        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                                        <title>Instagram & Gallery</title>
-                                        <link rel="stylesheet" href="style.css" />
-                                        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-                                    </posting>
-                                      <post>
-                                      
-                                        <!-- Bagian Instagram Post -->
-                                        <div class="instagram-section">
-                                            <div class="carousel-wrapper">
-                                              <div class="carousel">
-                                                <img src="assets/Climen Bagaskara.jpg" class="carousel-image active" />
-                                                <img src="assets/photo3.jpg" class="carousel-image" />
-                                                <!-- Tambahkan lebih banyak gambar -->
-                                                <button class="prev">&#10094;</button>
-                                                <button class="next">&#10095;</button>
-                                              </div>
+                                    <post>
+
+                                        <!-- Instagram Post Section -->
+                                        <section class="instagram-post">
+                                          <div class="carousel-container">
+                                            <button class="nav prev">&#10094;</button>
+                                            <div class="carousel">
+                                              <img src="photo3.jpg" class="carousel-image active" />
+                                              <img src="Climen Bagaskara.jpg" class="carousel-image" />
+                                              <img src="photo3.jpg" class="carousel-image" />
                                             </div>
-                                          
-                                            <div class="caption-box">
-                                              <div class="insta-header">
-                                                <img src="assets/Foto Profil.png" class="profile-pic" alt="profile" />
-                                                <div>
-                                                  <strong>diahanara</strong><br />
-                                                  <span class="location">Universitas Negeri Yogyakarta</span>
-                                                </div>
-                                              </div>
-                                              <p><strong>diahanara</strong> Jumat, 7 Juni 2024 ...</p>
-                                              <p class="date">December 18, 2024</p>
-                                            </div>
+                                            <button class="nav next">&#10095;</button>
                                           </div>
-                                      
-                                        <!-- Bagian Galleri -->
-                                        <h2 class="gallery-title">My Galleri</h2>
-                                        <div class="gallery-grid">
-                                          <div class="gallery-item" style="background-image: url('assets/g1.jpg')">Solo dance video</div>
-                                          <div class="gallery-item" style="background-image: url('assets/Climen\ Bagaskara.jpg')">Sax player</div>
-                                          <div class="gallery-item" style="background-image: url('assets/g3.jpg')">Drone video</div>
-                                          <div class="gallery-item" style="background-image: url('assets/photo3.jpg')">Dentistry</div>
-                                          <div class="gallery-item" style="background-image: url('assets/g5.jpg')">Music video</div>
-                                          <div class="gallery-item" style="background-image: url('assets/Cultural.jpg')">Group dance video</div>
-                                          <div class="gallery-item wide" style="background-image: url('assets/g7.jpg')">Scenery video</div>
-                                          <div class="gallery-item" style="background-image: url('assets/g8.jpg')">Dentistry</div>
-                                        </div>
-                                      
+                                        
+                                          <div class="post-info">
+                                            <div class="profile">
+                                              <img src="Foto Profil.jpg" alt="Profile" class="profile-pic" />
+                                              <div>
+                                                <strong>diahanara</strong><br />
+                                                <span>Universitas Negeri Yogyakarta</span>
+                                              </div>
+                                            </div>
+                                            <p class="caption">
+                                              <strong>diahanara</strong> Jumat, 7 Juni 2024 -- Gendhing Bahana UAD turut meramaikan acara Sua Gendhing di Pendopo Kampus 3 FPIP UNY, yang diselenggarakan oleh Suksmahanggar...
+                                            </p>
+                                            <span class="date">December 18, 2024</span>
+                                          </div>
+                                        </section>
+                                        
+                                        <!-- My Gallery Section -->
+                                        <section class="gallery-section">
+                                          <h2>My Galleri</h2>
+                                          <div class="gallery">
+                                            <div class="gallery-item" style="background-image: url('photo3.jpg')">Solo dance video</div>
+                                            <div class="gallery-item" style="background-image: url('Climen Bagaskara.jpg')">Sax player</div>
+                                            <div class="gallery-item" style="background-image: url('Cultural.jpg')">Drone video</div>
+                                            <div class="gallery-item" style="background-image: url('Cultural.jpg')">Dentistry</div>
+                                            <div class="gallery-item" style="background-image: url('Climen Bagaskara.jpg')">Music video</div>
+                                            <div class="gallery-item" style="background-image: url('Cultural.jpg')">Group dance video</div>
+                                            <div class="gallery-item wide" style="background-image: url('Cultural.jpg')">Scenery video</div>
+                                            <div class="gallery-item" style="background-image: url('photo3.jpg')">Dentistry</div>
+                                          </div>
+                                        </section>
+                                        
                                         <script src="script.js"></script>
-                                        <script>
-                                            const images = document.querySelectorAll('.carousel-image');
-                                            let current = 0;
-                                            
-                                            document.querySelector('.next').addEventListener('click', () => {
-                                              images[current].classList.remove('active');
-                                              current = (current + 1) % images.length;
-                                              images[current].classList.add('active');
-                                            });
-                                            
-                                            document.querySelector('.prev').addEventListener('click', () => {
-                                              images[current].classList.remove('active');
-                                              current = (current - 1 + images.length) % images.length;
-                                              images[current].classList.add('active');
-                                            });
-                                            </script>
-                                      </post>
+                                    </post>
                                       
 
                                 <div class="d-flex justify-content-center fs-2 gap-4">
