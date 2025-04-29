@@ -11754,10 +11754,10 @@ post {
   margin-right: 10px;
 }
 
-.more-icon {
-  margin-left: auto;
-  cursor: pointer;
-  color: #555;
+.insta-header > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* rata kiri */
 }
 
 .slider-caption {
