@@ -200,39 +200,54 @@
                                     </posting>
                                       <post>
                                       
-                                        <section class="post-section">
-                                          <div class="carousel">
-                                            <div class="carousel-images">
-                                              <img src="assets/photo3.jpg" alt="Photo 1">
-                                              <img src="assets/photo2.jpg" alt="Photo 2">
-                                              <img src="assets/photo3.jpg" alt="Photo 3">
-                                            </div>
-                                            <button class="prev">&#10094;</button>
-                                            <button class="next">&#10095;</button>
-                                            <div class="dots">
-                                              <span class="dot active"></span>
-                                              <span class="dot"></span>
-                                              <span class="dot"></span>
-                                            </div>
-                                          </div>
-                                      
-                                          <div class="caption-box">
-                                            <div class="insta-header">
-                                              <img src="assets/Foto Profil.png" alt="profile" class="profile-pic">
-                                              <div class="text-info">
-                                                <strong>diahanara</strong>
-                                                <span class="location">Universitas Negeri Yogyakarta</span>
+                                        <div class="carousel-container">
+                                            <div class="carousel">
+                                              <div class="carousel-images">
+                                                <img src="assets/photo1.jpg" alt="Gambar 1">
+                                                <img src="assets/photo2.jpg" alt="Gambar 2">
+                                                <img src="assets/photo3.jpg" alt="Gambar 3">
                                               </div>
-                                              <i class="fa-solid fa-ellipsis-h more-icon"></i>
+                                              <button class="prev">&#10094;</button>
+                                              <button class="next">&#10095;</button>
                                             </div>
-                                            <div class="caption">
-                                              <strong>diahanara</strong> Jumat, 7 Juni 2024 -- Gendhing Bahana UAD turut meramaikan acara Sua Gendhing...
+                                          
+                                            <div class="caption-box">
+                                              <div class="insta-header">
+                                                <img src="assets/profile.jpg" alt="profile" class="profile-pic">
+                                                <div class="user-info">
+                                                  <strong class="username">diahanara</strong><br>
+                                                  <span class="location">Universitas Negeri Yogyakarta</span>
+                                                </div>
+                                              </div>
+                                              <p class="caption">
+                                                Jumat, 7 Juni 2024 – Gendhing Bahana UAD turut meramaikan acara Sua Gendhing...
+                                              </p>
+                                              <span class="date">December 18, 2024</span>
                                             </div>
-                                            <div class="date">December 18, 2024</div>
                                           </div>
-                                        </section>
-                                      
+                                          <script>
+                                            const images = document.querySelector('.carousel-images');
+                                            let currentIndex = 0;
+                                            
+                                            function showSlide(index) {
+                                              const width = document.querySelector('.carousel').offsetWidth;
+                                              images.style.transform = `translateX(-${index * width}px)`;
+                                            }
+                                            
+                                            document.querySelector('.prev').onclick = () => {
+                                              currentIndex = (currentIndex === 0) ? 2 : currentIndex - 1;
+                                              showSlide(currentIndex);
+                                            };
+                                            
+                                            document.querySelector('.next').onclick = () => {
+                                              currentIndex = (currentIndex === 2) ? 0 : currentIndex + 1;
+                                              showSlide(currentIndex);
+                                            };
+                                            
+                                            window.addEventListener('resize', () => showSlide(currentIndex));
+                                            </script>
                                       </post>
+                                      
                                       
                                         <!-- Gallery Section -->
                                         <section class="gallery">
