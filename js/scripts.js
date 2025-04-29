@@ -59,12 +59,6 @@ document.addEventListener('DOMContentLoaded', function() {
 prevBtn.addEventListener('click', prevSlide);
 nextBtn.addEventListener('click', nextSlide);
 
-  // Pause on hover
-  const carousel = document.querySelector('.carousel');
-  if (carousel) {
-      carousel.addEventListener('mouseenter');
-      carousel.addEventListener('mouseleave');
-  }
 
   // Initialize the carousel
   initCarousel();
