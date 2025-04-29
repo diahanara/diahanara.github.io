@@ -317,7 +317,7 @@ caption {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   color: #6c757d;
-  text-align: left;
+  text-align: justify;
 }
 
 th {
@@ -11742,7 +11742,7 @@ post {
 
 .insta-header {
   display: flex;
-  align-items: left;
+  align-items: center;
   padding: 10px;
 }
 
@@ -11797,9 +11797,7 @@ post {
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-.caption-box h3 {
-  margin: 0;
-}
+
 
 .caption-box .location {
   font-size: 13px;
