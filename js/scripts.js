@@ -6,145 +6,136 @@
 // This file is intentionally blank
 // Use this file to add JavaScript to your project
 document.addEventListener('DOMContentLoaded', function() {
-  // Carousel functionality
+  // Initialize carousel
   let currentSlide = 0;
+  let slides = document.querySelectorAll('.carousel-slide');
+  let dotsContainer = document.querySelector('.carousel-dots');
+  let prevBtn = document.querySelector('.prev');
+  let nextBtn = document.querySelector('.next');
   let slideInterval;
-  const slides = document.querySelectorAll('.carousel-slide');
-  const dots = document.querySelectorAll('.dot');
-  const prevBtn = document.querySelector('.prev');
-  const nextBtn = document.querySelector('.next');
-  const carousel = document.querySelector('.carousel');
 
-  function showSlide(n) {
-      slides.forEach(slide => slide.classList.remove('active'));
-      dots.forEach(dot => dot.classList.remove('active'));
+  // Create dots based on number of slides
+  function createDots() {
+      dotsContainer.innerHTML = '';
+      slides.forEach((slide, index) => {
+          const dot = document.createElement('div');
+          dot.classList.add('dot');
+          if (index === currentSlide) dot.classList.add('active');
+          dot.addEventListener('click', () => goToSlide(index));
+          dotsContainer.appendChild(dot);
+      });
+  }
+
+  // Go to specific slide
+  function goToSlide(n) {
+      slides[currentSlide].classList.remove('active');
+      dotsContainer.children[currentSlide].classList.remove('active');
       
       currentSlide = (n + slides.length) % slides.length;
+      
       slides[currentSlide].classList.add('active');
-      if (dots[currentSlide]) {
-          dots[currentSlide].classList.add('active');
-      }
+      dotsContainer.children[currentSlide].classList.add('active');
   }
 
+  // Next slide
   function nextSlide() {
-      showSlide(currentSlide + 1);
+      goToSlide(currentSlide + 1);
   }
 
+  // Previous slide
   function prevSlide() {
-      showSlide(currentSlide - 1);
+      goToSlide(currentSlide - 1);
   }
 
-  function startCarousel() {
+  // Start auto slide
+  function startAutoSlide() {
       slideInterval = setInterval(nextSlide, 5000);
   }
 
-  function stopCarousel() {
+  // Stop auto slide
+  function stopAutoSlide() {
       clearInterval(slideInterval);
   }
 
   // Initialize carousel
-  if (prevBtn && nextBtn) {
-      prevBtn.addEventListener('click', () => {
-          stopCarousel();
-          prevSlide();
-          startCarousel();
-      });
-
-      nextBtn.addEventListener('click', () => {
-          stopCarousel();
-          nextSlide();
-          startCarousel();
-      });
+  function initCarousel() {
+      createDots();
+      slides[currentSlide].classList.add('active');
+      startAutoSlide();
   }
 
-  if (dots.length > 0) {
-      dots.forEach((dot, index) => {
-          dot.addEventListener('click', () => {
-              stopCarousel();
-              showSlide(index);
-              startCarousel();
-          });
-      });
-  }
+  // Event listeners for buttons
+  prevBtn.addEventListener('click', () => {
+      stopAutoSlide();
+      prevSlide();
+      startAutoSlide();
+  });
 
-  if (carousel) {
-      carousel.addEventListener('mouseenter', stopCarousel);
-      carousel.addEventListener('mouseleave', startCarousel);
-  }
+  nextBtn.addEventListener('click', () => {
+      stopAutoSlide();
+      nextSlide();
+      startAutoSlide();
+  });
 
-  startCarousel();
+  // Pause on hover
+  const carousel = document.querySelector('.carousel');
+  carousel.addEventListener('mouseenter', stopAutoSlide);
+  carousel.addEventListener('mouseleave', startAutoSlide);
+
+  // Initialize the carousel
+  initCarousel();
 
   // Gallery item click functionality
   const galleryItems = document.querySelectorAll('.gallery-item');
-  const modal = document.getElementById('imageModal');
-  const modalImg = document.getElementById('modalImage');
-  const closeModal = document.querySelector('.close-modal');
-
+  
   galleryItems.forEach(item => {
       item.addEventListener('click', function() {
-          // Show in modal
-          modal.style.display = 'flex';
-          modalImg.src = this.style.backgroundImage.slice(5, -2);
-
-          // Update carousel
-          const carouselImages = JSON.parse(this.getAttribute('data-carousel'));
-          updateCarousel(carouselImages);
-
-          // Scroll to carousel
-          document.getElementById('instagram-post').scrollIntoView({ behavior: 'smooth' });
+          // Get data attributes
+          const images = JSON.parse(this.getAttribute('data-images'));
+          const caption = this.getAttribute('data-caption');
+          const date = this.getAttribute('data-date');
+          
+          // Update carousel slides
+          updateCarousel(images);
+          
+          // Update post details
+          document.querySelector('.post-caption p').textContent = caption;
+          document.querySelector('.post-date').textContent = date;
+          
+          // Scroll to the instagram post section
+          document.getElementById('instagram-post').scrollIntoView({ 
+              behavior: 'smooth' 
+          });
       });
   });
 
+  // Function to update carousel with new images
   function updateCarousel(imageUrls) {
       const carousel = document.querySelector('.carousel');
-      const dotsContainer = document.querySelector('.carousel-dots');
       
-      // Clear existing slides except template
+      // Remove existing slides (except the first one which we'll reuse)
       const existingSlides = document.querySelectorAll('.carousel-slide');
-      existingSlides.forEach((slide, index) => {
-          if (index >= imageUrls.length) {
-              slide.remove();
-          }
-      });
-
-      // Clear dots
-      dotsContainer.innerHTML = '';
-
-      // Update or create slides
-      imageUrls.forEach((url, index) => {
-          let slide = existingSlides[index];
-          if (!slide) {
-              slide = document.createElement('div');
-              slide.className = 'carousel-slide';
-              carousel.insertBefore(slide, carousel.querySelector('.carousel-btn.next'));
-          }
-          slide.style.backgroundImage = `url('${url}')`;
-          slide.classList.toggle('active', index === 0);
-
-          // Create dots
-          const dot = document.createElement('div');
-          dot.className = `dot ${index === 0 ? 'active' : ''}`;
-          dot.addEventListener('click', () => {
-              stopCarousel();
-              showSlide(index);
-              startCarousel();
-          });
-          dotsContainer.appendChild(dot);
-      });
-
+      for (let i = 1; i < existingSlides.length; i++) {
+          existingSlides[i].remove();
+      }
+      
+      // Update first slide
+      const firstSlide = existingSlides[0];
+      firstSlide.querySelector('img').src = imageUrls[0];
+      
+      // Add new slides for additional images
+      for (let i = 1; i < imageUrls.length; i++) {
+          const slide = document.createElement('div');
+          slide.classList.add('carousel-slide');
+          slide.innerHTML = `<img src="${imageUrls[i]}" alt="Gallery Image">`;
+          carousel.insertBefore(slide, document.querySelector('.carousel-btn.next'));
+      }
+      
       // Reset carousel state
       currentSlide = 0;
-      showSlide(0);
+      slides = document.querySelectorAll('.carousel-slide');
+      createDots();
+      slides.forEach(slide => slide.classList.remove('active'));
+      slides[0].classList.add('active');
   }
-
-  // Modal functionality
-  closeModal.addEventListener('click', () => {
-      modal.style.display = 'none';
-  });
-
-  window.addEventListener('click', (e) => {
-      if (e.target === modal) {
-          modal.style.display = 'none';
-      }
-  });
 });
