@@ -193,92 +193,56 @@
                                     
                                     Let’s connect and craft something amazing together! 🚀</p>
                                     <posting>
-                                        <meta charset="UTF-8">
-                                        <title>My Gallery</title>
-                                        <link rel="stylesheet" href="style.css">
-                                        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+                                        <meta charset="UTF-8" />
+                                        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                                        <title>Instagram & Gallery</title>
+                                        <link rel="stylesheet" href="style.css" />
+                                        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
                                     </posting>
                                       <post>
                                       
-                                        <div class="carousel-container">
+                                        <!-- Bagian Instagram Post -->
+                                        <div class="instagram-section">
+                                          <div class="carousel-wrapper">
                                             <div class="carousel">
-                                              <div class="carousel-images">
-                                                <img src="assets/photo1.jpg" alt="Gambar 1">
-                                                <img src="assets/photo2.jpg" alt="Gambar 2">
-                                                <img src="assets/photo3.jpg" alt="Gambar 3">
-                                              </div>
-                                              <button class="prev">&#10094;</button>
-                                              <button class="next">&#10095;</button>
+                                              <img src="assets/Cultural.jpg" alt="img1">
+                                              <img src="assets/Climen Bagaskara.jpg" alt="img2">
+                                              <img src="assets/photo3.jpg" alt="img3">
                                             </div>
-                                          
-                                            <div class="caption-box">
-                                              <div class="insta-header">
-                                                <img src="assets/profile.jpg" alt="profile" class="profile-pic">
-                                                <div class="user-info">
-                                                  <strong class="username">diahanara</strong><br>
-                                                  <span class="location">Universitas Negeri Yogyakarta</span>
-                                                </div>
+                                            <button class="carousel-btn prev">&#10094;</button>
+                                            <button class="carousel-btn next">&#10095;</button>
+                                          </div>
+                                      
+                                          <div class="caption-box">
+                                            <div class="insta-header">
+                                              <img src="assets/Foto Profil.png" alt="profile" class="profile-pic">
+                                              <div class="user-info">
+                                                <strong class="username">diahanara</strong>
+                                                <span class="location">Universitas Negeri Yogyakarta</span>
                                               </div>
-                                              <p class="caption">
-                                                Jumat, 7 Juni 2024 – Gendhing Bahana UAD turut meramaikan acara Sua Gendhing...
-                                              </p>
-                                              <span class="date">December 18, 2024</span>
                                             </div>
+                                            <p class="caption">
+                                              Jumat, 7 Juni 2024 -- Gendhing Bahana UAD turut meramaikan acara Sua Gendhing di Pendopo Kampus 3 FPIP UNY...
+                                            </p>
+                                            <span class="date">December 18, 2024</span>
                                           </div>
-                                          <script>
-                                            const images = document.querySelector('.carousel-images');
-                                            let currentIndex = 0;
-                                            
-                                            function showSlide(index) {
-                                              const width = document.querySelector('.carousel').offsetWidth;
-                                              images.style.transform = `translateX(-${index * width}px)`;
-                                            }
-                                            
-                                            document.querySelector('.prev').onclick = () => {
-                                              currentIndex = (currentIndex === 0) ? 2 : currentIndex - 1;
-                                              showSlide(currentIndex);
-                                            };
-                                            
-                                            document.querySelector('.next').onclick = () => {
-                                              currentIndex = (currentIndex === 2) ? 0 : currentIndex + 1;
-                                              showSlide(currentIndex);
-                                            };
-                                            
-                                            window.addEventListener('resize', () => showSlide(currentIndex));
-                                            </script>
+                                        </div>
+                                      
+                                        <!-- Bagian Galleri -->
+                                        <h2 class="gallery-title">My Galleri</h2>
+                                        <div class="gallery-grid">
+                                          <div class="gallery-item" style="background-image: url('assets/g1.jpg')">Solo dance video</div>
+                                          <div class="gallery-item" style="background-image: url('assets/Climen\ Bagaskara.jpg')">Sax player</div>
+                                          <div class="gallery-item" style="background-image: url('assets/g3.jpg')">Drone video</div>
+                                          <div class="gallery-item" style="background-image: url('assets/photo3.jpg')">Dentistry</div>
+                                          <div class="gallery-item" style="background-image: url('assets/g5.jpg')">Music video</div>
+                                          <div class="gallery-item" style="background-image: url('assets/Cultural.jpg')">Group dance video</div>
+                                          <div class="gallery-item wide" style="background-image: url('assets/g7.jpg')">Scenery video</div>
+                                          <div class="gallery-item" style="background-image: url('assets/g8.jpg')">Dentistry</div>
+                                        </div>
+                                      
+                                        <script src="script.js"></script>
                                       </post>
-                                      
-                                      
-                                        <!-- Gallery Section -->
-                                        <section class="gallery">
-                                          <h2>My Galleri</h2>
-                                          <div class="gallery-grid">
-                                            <div class="item" style="background-image: url('assets/photo1.jpg');">Solo dance video</div>
-                                            <div class="item" style="background-image: url('assets/photo2.jpg');">Sax player</div>
-                                            <div class="item" style="background-image: url('assets/photo3.jpg');">Drone video</div>
-                                            <div class="item" style="background-image: url('assets/photo3.jpg');">Dentistry</div>
-                                            <div class="item" style="background-image: url('assets/photo2.jpg');">Music video</div>
-                                            <div class="item" style="background-image: url('assets/photo1.jpg');">Group dance video</div>
-                                            <div class="item wide" style="background-image: url('assets/photo1.jpg');">Scenery video</div>
-                                            <div class="item" style="background-image: url('assets/photo2.jpg');">Dentistry</div>
-                                          </div>
-                                        </section>
-                                      
-                                        <!-- Swiper JS -->
-                                        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-                                        <script>
-                                          var swiper = new Swiper(".mySwiper", {
-                                            navigation: {
-                                              nextEl: ".swiper-button-next",
-                                              prevEl: ".swiper-button-prev",
-                                            },
-                                            pagination: {
-                                              el: ".swiper-pagination",
-                                            },
-                                          });
-                                        </script>
-                                      </post>
-                                      <script src="script.js"></script>
                                       
 
                                 <div class="d-flex justify-content-center fs-2 gap-4">
