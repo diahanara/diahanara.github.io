@@ -11732,17 +11732,69 @@ html {
     left: -2vw;
   }
 }
-.photos {
+post {
+  font-family: 'Arial', sans-serif;
+  background-color: #fafafa;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  gap: 15px;
-  margin-top: 30px;
+  padding: 40px;
 }
 
-.photos img {
-  width: 200px;
+.insta-post {
+  width: 400px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.insta-header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.location {
+  font-size: 12px;
+  color: gray;
+}
+
+.more-icon {
+  margin-left: auto;
+  cursor: pointer;
+  color: #555;
+}
+
+.insta-image img {
+  width: 100%;
   height: auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.insta-actions {
+  display: flex;
+  gap: 15px;
+  font-size: 20px;
+  padding: 10px;
+  color: #333;
+}
+
+.insta-caption, .insta-comments {
+  padding: 0 10px;
+  font-size: 14px;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.insta-footer {
+  padding: 0 10px 10px 10px;
+  font-size: 12px;
+  color: gray;
 }
