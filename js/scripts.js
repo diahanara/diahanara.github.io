@@ -49,41 +49,21 @@ document.addEventListener('DOMContentLoaded', function() {
       goToSlide(currentSlide - 1);
   }
 
-  // Start auto slide
-  function startAutoSlide() {
-      slideInterval = setInterval(nextSlide, 5000);
-  }
-
-  // Stop auto slide
-  function stopAutoSlide() {
-      clearInterval(slideInterval);
-  }
-
   // Initialize carousel
   function initCarousel() {
       createDots();
       slides[currentSlide].classList.add('active');
-      startAutoSlide();
   }
 
-  // Event listeners for buttons
-  prevBtn.addEventListener('click', () => {
-      stopAutoSlide();
-      prevSlide();
-      startAutoSlide();
-  });
-
-  nextBtn.addEventListener('click', () => {
-      stopAutoSlide();
-      nextSlide();
-      startAutoSlide();
-  });
+// Keep button event listeners
+prevBtn.addEventListener('click', prevSlide);
+nextBtn.addEventListener('click', nextSlide);
 
   // Pause on hover
   const carousel = document.querySelector('.carousel');
   if (carousel) {
-      carousel.addEventListener('mouseenter', stopAutoSlide);
-      carousel.addEventListener('mouseleave', startAutoSlide);
+      carousel.addEventListener('mouseenter');
+      carousel.addEventListener('mouseleave');
   }
 
   // Initialize the carousel
@@ -137,8 +117,5 @@ document.addEventListener('DOMContentLoaded', function() {
       slides = document.querySelectorAll('.carousel-slide');
       createDots();
       
-      // Restart auto slide
-      stopAutoSlide();
-      startAutoSlide();
   }
 });
