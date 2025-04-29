@@ -11733,87 +11733,117 @@ html {
   }
 }
 post {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f8f9fa;
   margin: 0;
   padding: 0;
-  background: #f9f9f9;
   color: #333;
+}
+
+.post-section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  margin: 2rem auto;
+  flex-wrap: wrap;
+  max-width: 1100px;
+}
+
+.carousel {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.carousel-images {
+  display: flex;
+  width: 1200px; /* 3 * 400px if 3 images */
+  transition: transform 0.5s ease;
+}
+
+.carousel-images img {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 10;
+  padding: 0 10px;
+}
+
+.prev { left: 0; }
+.next { right: 0; }
+
+.dots {
+  text-align: center;
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+}
+
+.dot {
+  height: 10px;
+  width: 10px;
+  margin: 0 4px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background 0.3s;
+}
+
+.dot.active {
+  background-color: #717171;
+}
+
+.caption-box {
+  background: white;
+  padding: 1rem;
+  max-width: 500px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 10px;
 }
 
 .insta-header {
   display: flex;
   align-items: center;
-  padding: 10px;
+  justify-content: space-between;
+  margin-bottom: 1rem;
 }
 
-
-.profile-pic {
+.insta-header .profile-pic {
   width: 40px;
   height: 40px;
   border-radius: 50%;
   margin-right: 10px;
 }
 
-.insta-header > div {
+.text-info {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* rata kiri */
-}
-
-.slider-caption {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 40px 20px;
-  justify-content: center;
   align-items: flex-start;
-}
-
-.slider-container {
   flex: 1;
-  max-width: 500px;
-  margin: 10px;
 }
 
-.swiper {
-  width: 100%;
-  height: 320px;
-  border-radius: 10px;
-  overflow: hidden;
+.caption {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
 }
 
-.swiper-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.caption-box {
-  flex: 1;
-  max-width: 400px;
-  margin: 10px;
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-
-
-.caption-box .location {
-  font-size: 13px;
-  color: #777;
-}
-
-.caption-box .caption {
-  margin-top: 15px;
-  font-size: 15px;
-  line-height: 1.5;
-}
-
-.caption-box .date {
-  font-size: 13px;
+.date {
+  font-size: 0.8rem;
   color: #999;
-  margin-top: 10px;
 }
 
 .gallery {
