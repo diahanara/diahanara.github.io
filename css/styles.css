@@ -11941,6 +11941,17 @@ body {
   text-align: left;
 }
 
+.post-caption p {
+  white-space: pre-line; /* Mempertahankan line breaks */
+  line-height: 1.6;
+}
+
+.post-caption p br {
+  display: block; /* Memastikan line breaks bekerja */
+  content: "";
+  margin-bottom: 8px; /* Spasi antar paragraf */
+}
+
 /* My Gallery Section */
 #my-gallery {
   padding: 30px 20px;

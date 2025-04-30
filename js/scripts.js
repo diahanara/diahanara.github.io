@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
           updateCarousel(images);
           
           // Update post details
-          document.querySelector('.post-caption p').textContent = caption;
+          document.querySelector('.post-caption p').innerHTML = caption;
           document.querySelector('.location').textContent = location;
           document.querySelector('.post-date').textContent = date;
       });
