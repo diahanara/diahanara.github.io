@@ -11931,11 +11931,12 @@ body {
 .post-caption {
   padding: 0 16px;
   margin-bottom: 8px;
+  font-size: 14px;
   text-align: left;
 }
 
 .post-date {
-  color: #8a8a8a;
+  color: #ebebeb;
   font-size: 12px;
   text-align: left;
 }
