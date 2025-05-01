@@ -11759,6 +11759,10 @@ body {
   background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
 }
 
+.text-end {
+  text-align: right !important;
+}
+
 /* Instagram Post Section */
 #instagram-post {
   margin: 20px 0;
@@ -11828,7 +11832,7 @@ body {
   display: flex;
   justify-content: center;
   gap: 6px;
-  z-index: 2;
+  z-index: 10;
 }
 
 .dot {
@@ -11862,7 +11866,7 @@ body {
   justify-content: center;
   z-index: 10;
   opacity: 0.8;
-  transition: all 0.3s;
+  transition: opacity 0.3s;
 }
 
 .carousel-btn:hover {
@@ -11870,17 +11874,26 @@ body {
   background-color: rgba(0,0,0,0.5);
 }
 
+.carousel-btn.prev {
+  left: 15px;
+}
+
+.carousel-btn.next {
+  right: 15px;
+}
+
 .post-details {
   flex: 1;
-  padding: 16px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
 }
 
 .profile-header {
   display: flex;
-  align-items: center;
-  margin-bottom: 16px;
+    align-items: center;
+    margin-bottom: 16px;
+    padding: 0 16px;
 }
 
 .profile-pic {
@@ -11899,50 +11912,44 @@ body {
 }
 
 .profile-info {
-  flex-grow: 1;
+  margin-left: 12px;
+  text-align: left;
 }
 
 .username {
-  font-size: 14px;
   font-weight: 600;
-  margin-bottom: 2px;
+  font-size: 14px;
+  margin: 0;
 }
 
 .location {
   font-size: 12px;
   color: #262626;
+  margin: 0;
 }
 
-.post-caption.scrollable {
-  max-height: 200px;
-  overflow-y: auto;
-  padding-right: 8px;
-  margin-bottom: 10px;
+.post-caption {
+  padding: 0 16px;
+  margin-bottom: 8px;
   font-size: 14px;
-  line-height: 1.5;
-}
-
-.post-caption.scrollable::-webkit-scrollbar {
-  width: 4px;
-}
-
-.post-caption.scrollable::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 2px;
-}
-
-.post-caption p {
-  white-space: pre-line;
-  word-wrap: break-word;
-  margin-right: 5px;
+  text-align: left;
 }
 
 .post-date {
   color: #8e8e8e;
-  font-size: 10px;
-  letter-spacing: 0.2px;
-  text-transform: uppercase;
-  margin-top: 8px;
+  font-size: 12px;
+  text-align: left;
+}
+
+.post-caption p {
+  white-space: pre-line; /* Mempertahankan line breaks */
+  line-height: 1.5;
+}
+
+.post-caption p br {
+  display: block; /* Memastikan line breaks bekerja */
+  content: "";
+  margin-bottom: 4px; /* Spasi antar paragraf */
 }
 
 /* My Gallery Section */
@@ -12002,17 +12009,6 @@ body {
   transform: translateY(0);
 }
 
-/* Animation */
-@keyframes highlight {
-  0% { box-shadow: 0 0 0 0 rgba(0, 149, 246, 0); }
-  50% { box-shadow: 0 0 0 5px rgba(0, 149, 246, 0.3); }
-  100% { box-shadow: 0 0 0 0 rgba(0, 149, 246, 0); }
-}
-
-#instagram-post {
-  transition: all 0.3s;
-}
-
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   .post-container {
@@ -12024,8 +12020,8 @@ body {
       aspect-ratio: 1/1;
   }
   
-  .post-caption.scrollable {
-      max-height: 150px;
+  .gallery-grid {
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   }
 }
 
@@ -12035,13 +12031,13 @@ body {
   }
   
   .gallery-grid {
-      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
       gap: 10px;
   }
   
   .carousel-btn {
       width: 25px;
       height: 25px;
-      font-size: 12px;
+      font-size: 14px;
   }
 }
