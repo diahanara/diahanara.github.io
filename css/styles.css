@@ -12073,7 +12073,7 @@ body {
 /* Untuk desktop */
 @media (min-width: 768px) {
   .post-caption.scrollable {
-      max-height: 350px;
+      max-height: 450px;
   }
 }
 
