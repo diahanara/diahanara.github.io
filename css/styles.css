@@ -12047,7 +12047,7 @@ body {
 
 /* Container caption bisa discroll */
 .post-caption.scrollable {
-  max-height: 200px; /* Sesuaikan tinggi maksimal */
+  max-height: 400px; /* Sesuaikan tinggi maksimal */
   overflow-y: auto;
   padding-right: 8px; /* Untuk ruang scrollbar */
   margin-bottom: 10px;
