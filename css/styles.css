@@ -11943,13 +11943,19 @@ body {
 
 .post-caption p {
   white-space: pre-line; /* Mempertahankan line breaks */
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 .post-caption p br {
   display: block; /* Memastikan line breaks bekerja */
   content: "";
-  margin-bottom: 8px; /* Spasi antar paragraf */
+  margin-bottom: 4px; /* Spasi antar paragraf */
+}
+
+.post-caption .hashtags {
+  display: block;
+  margin-top: 8px;
+  color: #00376b;
 }
 
 /* My Gallery Section */
