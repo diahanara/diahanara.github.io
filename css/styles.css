@@ -11952,10 +11952,22 @@ body {
   margin-bottom: 4px; /* Spasi antar paragraf */
 }
 
-.post-caption .hashtags {
-  display: block;
-  margin-top: 8px;
-  color: #00376b;
+/* Container caption bisa discroll */
+.post-caption.scrollable {
+  max-height: 200px; /* Sesuaikan tinggi maksimal */
+  overflow-y: auto;
+  padding-right: 8px; /* Untuk ruang scrollbar */
+  margin-bottom: 10px;
+}
+
+/* Style scrollbar */
+.post-caption.scrollable::-webkit-scrollbar {
+  width: 4px;
+}
+
+.post-caption.scrollable::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 2px;
 }
 
 /* My Gallery Section */
