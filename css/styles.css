@@ -12041,3 +12041,45 @@ body {
       font-size: 14px;
   }
 }
+
+
+
+
+/* Container caption bisa discroll */
+.post-caption.scrollable {
+  max-height: 200px; /* Sesuaikan tinggi maksimal */
+  overflow-y: auto;
+  padding-right: 8px; /* Untuk ruang scrollbar */
+  margin-bottom: 10px;
+}
+
+/* Style scrollbar */
+.post-caption.scrollable::-webkit-scrollbar {
+  width: 4px;
+}
+
+.post-caption.scrollable::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 2px;
+}
+
+/* Pastikan caption tidak melebar */
+.post-caption p {
+  white-space: pre-line;
+  word-wrap: break-word;
+  margin-right: 5px;
+}
+
+/* Untuk desktop */
+@media (min-width: 768px) {
+  .post-caption.scrollable {
+      max-height: 250px;
+  }
+}
+
+/* Untuk mobile */
+@media (max-width: 767px) {
+  .post-caption.scrollable {
+      max-height: 180px;
+  }
+}
