@@ -72,7 +72,14 @@ document.addEventListener('DOMContentLoaded', function() {
           const location = this.getAttribute('data-location');
           const date = this.getAttribute('data-date');
           
-          // Update carousel slides - FIXED
+           // Scroll ke bagian postingan Instagram
+            const instagramSection = document.getElementById('instagram-post');
+            instagramSection.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start' // Posisi tepat di atas section
+            });
+          
+            // Update carousel slides - FIXED
           updateCarousel(images);
           
           // Update post details
