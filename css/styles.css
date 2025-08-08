@@ -11568,8 +11568,14 @@ html {
   background: linear-gradient(315deg, #1e30f3 0%, #e21e80 100%);
   -webkit-background-clip: text;
   background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
+  -webkit-text-fill-color: transparent; /* Untuk Safari lama */
+  color: transparent; /* Standar modern */
+}
+
+/* Jika Anda menggunakan -webkit-appearance di tempat lain */
+.element {
+  -webkit-appearance: none;
+  appearance: none; /* Standar property */
 }
 
 .rounded-4 {
