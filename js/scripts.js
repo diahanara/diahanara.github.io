@@ -113,19 +113,65 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // sertif
   document.addEventListener('DOMContentLoaded', function() {
-    // Filter functionality
+    // Inisialisasi modal
+    const modal = document.querySelector('.certificate-modal');
+    const modalImg = document.getElementById('modal-certificate');
+    const modalTitle = document.getElementById('modal-title');
+    const modalIssuer = document.getElementById('modal-issuer');
+    const modalDate = document.getElementById('modal-date');
+    const closeBtn = document.querySelector('.close-modal');
+    const viewButtons = document.querySelectorAll('.view-btn');
+
+    // Fungsi buka modal
+    function openModal(imgSrc, title, issuer, date) {
+        modalImg.src = imgSrc;
+        modalTitle.textContent = title;
+        modalIssuer.textContent = issuer;
+        modalDate.textContent = date;
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+    }
+
+    // Fungsi tutup modal
+    function closeModal() {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+
+    // Event listener untuk tombol view
+    viewButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const certificateItem = this.closest('.certificate-item');
+            const imgSrc = certificateItem.querySelector('img').src;
+            const title = certificateItem.querySelector('h3').textContent;
+            const issuer = certificateItem.querySelector('p').textContent;
+            const date = certificateItem.querySelector('.certificate-date').textContent;
+            
+            openModal(imgSrc, title, issuer, date);
+        });
+    });
+
+    // Event listener untuk tombol close
+    closeBtn.addEventListener('click', closeModal);
+
+    // Tutup modal saat klik di luar konten
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+
+    // Filter functionality (jika diperlukan)
     const filterButtons = document.querySelectorAll('.filter-btn');
     const certificateItems = document.querySelectorAll('.certificate-item');
     
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
-            // Set active button
             filterButtons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
             
             const filterValue = button.getAttribute('data-filter');
             
-            // Filter items
             certificateItems.forEach(item => {
                 if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
                     item.style.display = 'block';
@@ -134,45 +180,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         });
-    });
-    
-    // Modal functionality
-    const modal = document.querySelector('.certificate-modal');
-    const modalImg = document.getElementById('modal-certificate');
-    const modalTitle = document.getElementById('modal-title');
-    const modalIssuer = document.getElementById('modal-issuer');
-    const modalDate = document.getElementById('modal-date');
-    const closeModal = document.querySelector('.close-modal');
-    const viewButtons = document.querySelectorAll('.view-btn');
-    
-    viewButtons.forEach((button, index) => {
-        button.addEventListener('click', () => {
-            const item = button.closest('.certificate-item');
-            const imgSrc = item.querySelector('img').src;
-            const title = item.querySelector('h3').textContent;
-            const issuer = item.querySelector('p').textContent;
-            const date = item.querySelector('.certificate-date').textContent;
-            
-            modalImg.src = imgSrc;
-            modalTitle.textContent = title;
-            modalIssuer.textContent = issuer;
-            modalDate.textContent = date;
-            
-            modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        });
-    });
-    
-    closeModal.addEventListener('click', () => {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    });
-    
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
     });
 });
 });
