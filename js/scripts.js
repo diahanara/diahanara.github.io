@@ -110,4 +110,69 @@ document.addEventListener('DOMContentLoaded', function() {
       currentSlide = 0;
       createDots();
   }
+
+  // sertif
+  document.addEventListener('DOMContentLoaded', function() {
+    // Filter functionality
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const certificateItems = document.querySelectorAll('.certificate-item');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Set active button
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            const filterValue = button.getAttribute('data-filter');
+            
+            // Filter items
+            certificateItems.forEach(item => {
+                if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    });
+    
+    // Modal functionality
+    const modal = document.querySelector('.certificate-modal');
+    const modalImg = document.getElementById('modal-certificate');
+    const modalTitle = document.getElementById('modal-title');
+    const modalIssuer = document.getElementById('modal-issuer');
+    const modalDate = document.getElementById('modal-date');
+    const closeModal = document.querySelector('.close-modal');
+    const viewButtons = document.querySelectorAll('.view-btn');
+    
+    viewButtons.forEach((button, index) => {
+        button.addEventListener('click', () => {
+            const item = button.closest('.certificate-item');
+            const imgSrc = item.querySelector('img').src;
+            const title = item.querySelector('h3').textContent;
+            const issuer = item.querySelector('p').textContent;
+            const date = item.querySelector('.certificate-date').textContent;
+            
+            modalImg.src = imgSrc;
+            modalTitle.textContent = title;
+            modalIssuer.textContent = issuer;
+            modalDate.textContent = date;
+            
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        });
+    });
+    
+    closeModal.addEventListener('click', () => {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    });
+    
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    });
+});
 });
