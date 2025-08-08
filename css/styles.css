@@ -12085,7 +12085,7 @@ body {
 }
 
     /* sertif CSS */
-/* Header */
+/* ===== HEADER STYLES ===== */
 .certificate-header {
   text-align: center;
   padding: 3rem 1rem;
@@ -12104,7 +12104,7 @@ body {
   opacity: 0.9;
 }
 
-/* Filter Controls */
+/* ===== FILTER CONTROLS ===== */
 .filter-controls {
   display: flex;
   justify-content: center;
@@ -12126,12 +12126,13 @@ body {
   box-shadow: var(--box-shadow);
 }
 
-.filter-btn.active, .filter-btn:hover {
+.filter-btn.active, 
+.filter-btn:hover {
   background-color: var(--primary-color);
   color: var(--white);
 }
 
-/* Certificate Gallery */
+/* ===== CERTIFICATE GALLERY ===== */
 .certificate-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -12161,6 +12162,7 @@ body {
   position: relative;
   height: 200px;
   overflow: hidden;
+  cursor: pointer; /* Important for clickability */
 }
 
 .certificate-img img {
@@ -12174,6 +12176,7 @@ body {
   transform: scale(1.05);
 }
 
+/* Overlay Styles - Critical for click functionality */
 .certificate-overlay {
   position: absolute;
   top: 0;
@@ -12186,6 +12189,7 @@ body {
   align-items: center;
   opacity: 0;
   transition: opacity 0.3s ease;
+  z-index: 2; /* Ensure it's above the image */
 }
 
 .certificate-img:hover .certificate-overlay {
@@ -12205,6 +12209,7 @@ body {
   justify-content: center;
   align-items: center;
   transition: all 0.3s ease;
+  z-index: 3; /* Above overlay */
 }
 
 .view-btn:hover {
@@ -12239,7 +12244,7 @@ body {
   font-weight: 500;
 }
 
-/* Certificate Modal */
+/* ===== MODAL STYLES ===== */
 .certificate-modal {
   display: none;
   position: fixed;
@@ -12255,7 +12260,7 @@ body {
   transition: opacity 0.3s ease;
 }
 
-.certificate-modal.show {
+.certificate-modal.active {
   display: flex;
   opacity: 1;
 }
@@ -12266,21 +12271,47 @@ body {
   max-height: 90vh;
   width: auto;
   border-radius: 10px;
-  overflow: hidden;
+  overflow: auto;
   position: relative;
-  transform: scale(0.9);
+  transform: scale(0.95);
   transition: transform 0.3s ease;
 }
 
-.certificate-modal.show .modal-content {
+.certificate-modal.active .modal-content {
   transform: scale(1);
 }
 
+.close-modal {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 1.8rem;
+  color: var(--dark-gray);
+  cursor: pointer;
+  z-index: 10;
+  transition: color 0.3s ease;
+  background: rgba(255, 255, 255, 0.8);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.close-modal:hover {
+  color: var(--primary-color);
+  background: var(--white);
+}
+
 #modal-certificate {
-  max-width: 100%;
-  max-height: 75vh;
+  width: 100%;
+  height: auto;
+  max-height: 70vh;
+  object-fit: contain;
   display: block;
   margin: 0 auto;
+  padding: 20px;
 }
 
 .modal-info {
@@ -12289,28 +12320,52 @@ body {
   background-color: var(--white);
 }
 
-/* Responsive Design */
+.modal-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.modal-info p {
+  color: var(--dark-gray);
+  margin-bottom: 0.5rem;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 768px) {
   .certificate-gallery {
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   }
   
   .certificate-header h1 {
-      font-size: 2rem;
+    font-size: 2rem;
+  }
+  
+  .modal-content {
+    width: 95%;
   }
 }
 
 @media (max-width: 480px) {
   .certificate-gallery {
-      grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
   }
   
   .filter-controls {
-      gap: 0.5rem;
+    gap: 0.5rem;
   }
   
   .filter-btn {
-      padding: 0.5rem 1rem;
-      font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+  
+  #modal-certificate {
+    padding: 10px;
+    max-height: 60vh;
+  }
+  
+  .modal-info {
+    padding: 1rem;
   }
 }

@@ -113,73 +113,43 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // sertif
   document.addEventListener('DOMContentLoaded', function() {
-    // Inisialisasi modal
+    // Selektor yang lebih spesifik
     const modal = document.querySelector('.certificate-modal');
     const modalImg = document.getElementById('modal-certificate');
-    const modalTitle = document.getElementById('modal-title');
-    const modalIssuer = document.getElementById('modal-issuer');
-    const modalDate = document.getElementById('modal-date');
     const closeBtn = document.querySelector('.close-modal');
-    const viewButtons = document.querySelectorAll('.view-btn');
-
-    // Fungsi buka modal
-    function openModal(imgSrc, title, issuer, date) {
-        modalImg.src = imgSrc;
-        modalTitle.textContent = title;
-        modalIssuer.textContent = issuer;
-        modalDate.textContent = date;
+    
+    // Klik pada tombol view
+    document.querySelectorAll('.view-btn').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation(); // Hindari bubbling
+        
+        // Dapatkan gambar sertifikat terdekat
+        const certImg = this.closest('.certificate-img').querySelector('img');
+        const certTitle = this.closest('.certificate-item').querySelector('h3').textContent;
+        
+        // Set modal content
+        modalImg.src = certImg.src;
+        modalImg.alt = certTitle;
+        document.getElementById('modal-title').textContent = certTitle;
+        
+        // Tampilkan modal
         modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden'; // Prevent scrolling
-    }
-
-    // Fungsi tutup modal
-    function closeModal() {
+        document.body.style.overflow = 'hidden';
+      });
+    });
+  
+    // Tutup modal
+    closeBtn.addEventListener('click', function() {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    });
+  
+    // Tutup saat klik di luar
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) {
         modal.style.display = 'none';
         document.body.style.overflow = 'auto';
-    }
-
-    // Event listener untuk tombol view
-    viewButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const certificateItem = this.closest('.certificate-item');
-            const imgSrc = certificateItem.querySelector('img').src;
-            const title = certificateItem.querySelector('h3').textContent;
-            const issuer = certificateItem.querySelector('p').textContent;
-            const date = certificateItem.querySelector('.certificate-date').textContent;
-            
-            openModal(imgSrc, title, issuer, date);
-        });
+      }
     });
-
-    // Event listener untuk tombol close
-    closeBtn.addEventListener('click', closeModal);
-
-    // Tutup modal saat klik di luar konten
-    modal.addEventListener('click', function(e) {
-        if (e.target === modal) {
-            closeModal();
-        }
-    });
-
-    // Filter functionality (jika diperlukan)
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const certificateItems = document.querySelectorAll('.certificate-item');
-    
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
-            
-            const filterValue = button.getAttribute('data-filter');
-            
-            certificateItems.forEach(item => {
-                if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        });
-    });
-});
+  });
 });
