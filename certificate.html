@@ -63,100 +63,70 @@
             <button class="filter-btn" data-filter="language">Bahasa</button>
         </div>
 
-        <!-- Galeri Sertifikat -->
-        <div class="certificate-gallery">
-            <!-- Item 1 -->
-            <div class="certificate-item" data-category="design">
-                <div class="certificate-img">
-                    <img src="assets/Geekgarden Sertifikat.jpg" alt="Sertifikat Trainee GTP #4">
-                    <div class="certificate-overlay">
-                        <button class="view-btn"><i class="fas fa-expand"></i></button>
-                    </div>
-                </div>
-                <div class="certificate-info">
-                    <h3>Geek Trainee Program Batch 4 by GeekGarden</h3>
+            <!-- Gallery Grid -->
+    <div class="gallery">
+        <!-- Sertifikat 1 -->
+        <div class="certificate-item" data-category="design">
+            <img src="assets/Geekgarden Sertifikat.jpg" alt="Sertifikat Trainee GTP #4" class="certificate-img">
+            <div class="certificate-info">
+                <h3>Geek Trainee Program Batch 4 by GeekGarden</h3>
                     <p>GeekGarden Software House</p>
                     <span class="certificate-date">Maret 2025</span>
-                </div>
             </div>
+        </div>
 
-            <!-- Item 2 -->
-            <div class="certificate-item" data-category="design">
-                <div class="certificate-img">
-                    <img src="assets/DMMC_diahanarahmawgmail.com_DMMC-20012025.jpg" alt="Sertifikat UI/UX Design IODA ACADEMY">
-                    <div class="certificate-overlay">
-                        <button class="view-btn"><i class="fas fa-expand"></i></button>
-                    </div>
-                </div>
-                <div class="certificate-info">
-                    <h3>Intro to Digital Marketing</h3>
-                    <p>Ioda Academy</p>
+        <!-- Sertifikat 2 -->
+        <div class="certificate-item" data-category="programming">
+            <img src="assets/DMMC_diahanarahmawgmail.com_DMMC-20012025.jpg" alt="Sertifikat Digital Marketing RevoU" class="certificate-img">
+            <div class="certificate-info">
+                <h3>Intro to Digital Marketing</h3>
+                    <p>RevoU</p>
                     <span class="certificate-date">Januari 2025</span>
-                </div>
             </div>
+        </div>
 
-            <!-- Item 3 -->
-            <div class="certificate-item" data-category="language">
-                <div class="certificate-img">
-                    <img src="assets/Sertifikat UI UX-IODA ACADEMY.jpg" alt="Sertifikat UI/UX Design Ioda Academy">
-                    <div class="certificate-overlay">
-                        <button class="view-btn"><i class="fas fa-expand"></i></button>
-                    </div>
-                </div>
-                <div class="certificate-info">
-                    <h3>Praktik Design LoFi & HiFi Aplikasi dari 0 menggunakan Figma</h3>
+        <!-- Sertifikat 3 -->
+        <div class="certificate-item" data-category="design">
+            <img src="assets/Sertifikat UI UX-IODA ACADEMY.jpg" alt="Sertifikat UI/UX Design Ioda Academy" class="certificate-img">
+            <div class="certificate-info">
+                <h3>Praktik Design LoFi & HiFi Aplikasi dari 0 menggunakan Figma</h3>
                     <p>Ioda Academy</p>
                     <span class="certificate-date">Desember 2024</span>
-                </div>
             </div>
+        </div>
 
-            <!-- Item 4 -->
-            <div class="certificate-item" data-category="language">
-                <div class="certificate-img">
-                    <img src="assets/NUR DIAH RAHMAWATI_SOFTWARE TESTER CERTIFICATE_GROWIA.jpg" alt="Sertifikat Software Tester Growia">
-                    <div class="certificate-overlay">
-                        <button class="view-btn"><i class="fas fa-expand"></i></button>
-                    </div>
-                </div>
-                <div class="certificate-info">
-                    <h3>Dasar-Dasar Pengujian Perangkat Lunak</h3>
+        <!-- Sertifikat 4 -->
+        <div class="certificate-item" data-category="programming">
+            <img src="assets/NUR DIAH RAHMAWATI_SOFTWARE TESTER CERTIFICATE_GROWIA.jpg" alt="Sertifikat Software Tester Growia" class="certificate-img">
+            <div class="certificate-info">
+                <h3>Dasar-Dasar Pengujian Perangkat Lunak</h3>
                     <p>Growia</p>
                     <span class="certificate-date">Desember 2024</span>
-                </div>
             </div>
+        </div>
 
-            <!-- Item 4 -->
-            <div class="certificate-item" data-category="language">
-                <div class="certificate-img">
-                    <img src="assets/Sertifikat Gendhing Bahana - Nur Diah Rahmawati.png" alt="Sertifikat Gendhing Bahana">
-                    <div class="certificate-overlay">
-                        <button class="view-btn"><i class="fas fa-expand"></i></button>
-                    </div>
-                </div>
-                <div class="certificate-info">
-                    <h3>Anggota Divisi Kominfo Komunitas Gendhing Bahana</h3>
+        <!-- Sertifikat 5 -->
+        <div class="certificate-item" data-category="programming">
+            <img src="assets/Sertifikat Gendhing Bahana - Nur Diah Rahmawati.png" alt="Sertifikat Gendhing Bahana" class="certificate-img">
+            <div class="certificate-info">
+                <h3>Anggota Divisi Kominfo Komunitas Gendhing Bahana</h3>
                     <p>Gendhing Bahana</p>
                     <span class="certificate-date">Desember 2023</span>
-                </div>
             </div>
+        </div>
 
             <!-- Tambahkan lebih banyak item sesuai kebutuhan -->
         </div>
     </main>
 
-    <!-- Modal untuk preview -->
-    <div class="certificate-modal">
-        <div class="modal-content">
-          <span class="close-modal">&times;</span>
-          <img id="modal-certificate" src="" alt="Preview Sertifikat">
-          <div class="modal-info">
-            <h3 id="modal-title">Judul Sertifikat</h3>
-            <p id="modal-issuer">Penerbit</p>
-            <p id="modal-date">Tanggal</p>
-          </div>
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="close-btn">&times;</span>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="">
         </div>
-      </div>
-
+    </div>
+    
     <script src="script.js"></script>
     </body>
 </html>

@@ -113,43 +113,52 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // sertif
   document.addEventListener('DOMContentLoaded', function() {
-    // Selektor yang lebih spesifik
-    const modal = document.querySelector('.certificate-modal');
-    const modalImg = document.getElementById('modal-certificate');
-    const closeBtn = document.querySelector('.close-modal');
+    // Filter Functionality
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const certificateItems = document.querySelectorAll('.certificate-item');
     
-    // Klik pada tombol view
-    document.querySelectorAll('.view-btn').forEach(btn => {
-      btn.addEventListener('click', function(e) {
-        e.stopPropagation(); // Hindari bubbling
-        
-        // Dapatkan gambar sertifikat terdekat
-        const certImg = this.closest('.certificate-img').querySelector('img');
-        const certTitle = this.closest('.certificate-item').querySelector('h3').textContent;
-        
-        // Set modal content
-        modalImg.src = certImg.src;
-        modalImg.alt = certTitle;
-        document.getElementById('modal-title').textContent = certTitle;
-        
-        // Tampilkan modal
-        modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-      });
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Update active button
+            filterBtns.forEach(btn => btn.classList.remove('active'));
+            btn.classList.add('active');
+            
+            const filter = btn.dataset.filter;
+            
+            // Filter items
+            certificateItems.forEach(item => {
+                if (filter === 'all' || item.dataset.category === filter) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
     });
-  
-    // Tutup modal
-    closeBtn.addEventListener('click', function() {
-      modal.style.display = 'none';
-      document.body.style.overflow = 'auto';
+    
+    // Lightbox Functionality
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.querySelector('.close-btn');
+    
+    document.querySelectorAll('.certificate-img').forEach(img => {
+        img.addEventListener('click', () => {
+            lightbox.style.display = 'flex';
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+        });
     });
-  
-    // Tutup saat klik di luar
-    modal.addEventListener('click', function(e) {
-      if (e.target === modal) {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-      }
+    
+    closeBtn.addEventListener('click', () => {
+        lightbox.style.display = 'none';
     });
-  });
+    
+    // Close lightbox when clicking outside
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+            lightbox.style.display = 'none';
+        }
+    });
+});
+
 });
